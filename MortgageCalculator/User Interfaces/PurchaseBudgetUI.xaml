@@ -1,0 +1,72 @@
+﻿<Page x:Class="MortgageCalculator.PurchaseBudgetUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MortgageCalculator"
+      mc:Ignorable="d" 
+      Title="PurchaseBudgetUI" Height="450" Width="800" FontFamily="Microsoft New Tai Lue" FontSize="22" Background="White">
+    <Grid HorizontalAlignment="Center" Margin="0,0,40,40">
+        <!--Grid 10x10-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <!--Row 1-->
+        <Label Content="Annual Income" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Purchase Budget" Grid.Row="1" Grid.Column="2" Margin="60,0,0,0"/>
+        <!--Row 2-->
+        <TextBox x:Name="AnnualIncomeTextBox" Grid.Row="2" Grid.Column="1" Margin="0,0,0,20"
+                 Text="{Binding Path=AnnualIncome, StringFormat={}{0:N0}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                 KeyDown="AnnualIncomeTextBox_KeyDown" BorderThickness="0.7"/>
+        <TextBlock x:Name="PurchaseBudgetTextBlock" Grid.Row="2" Grid.Column="2" Margin="60,0,0,0" 
+                   Text="{Binding Path=PurchaseBudget, StringFormat={}{0:c0}, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" FontSize="24"/>
+        <!--Row 3-->
+        <Label Content="Monthly Debt (credit cards, loans, etc.)" Grid.Row="3" Grid.Column="1"/>
+        <Label Content="Mortgage Amount" Grid.Row="3" Grid.Column="2" Margin="60,0,0,0"/>
+        <!--Row 4-->
+        <TextBox x:Name="MonthlyDebtTextBox" Grid.Row="4" Grid.Column="1" Margin="0,0,0,20"
+                 Text="{Binding Path=MonthlyDebt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}" 
+                 KeyDown="MonthlyDebtTextBox_KeyDown" BorderThickness="0.7"/>
+        <TextBlock x:Name="MortgageAmountTextBlock" Grid.Row="4" Grid.Column="2" Margin="60,0,0,0" 
+                   Text="{Binding Path=MortgageAmount, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c0}}" TextAlignment="Center"  FontSize="24"/>
+        <!--Row 5-->
+        <Label Content="Down Payment" Grid.Row="5" Grid.Column="1"/>
+        <Label Content="Interest" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+        <!--Row 6-->
+        <TextBox x:Name="DownPaymentTextBox" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,20" Width="160" 
+                 Text="{Binding Path=DownPayment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}" 
+                 KeyDown="DownPaymentTextBox_KeyDown" BorderThickness="0.7"/>
+        <TextBox x:Name="InterestRateTextBox" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,0,20" Width="120" 
+                 Text="{Binding Path=InterestRate, Mode=TwoWay}" 
+                 KeyDown="InterestRateTextBox_KeyDown" BorderThickness="0.7"/>
+        <!--Row 7-->
+        <Label Content="Loan Term" Grid.Row="7" Grid.Column="1"/>
+        <Label Content="Credit Score" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+        <!--Row 8-->
+        <ComboBox x:Name="LoanTermComboBox" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" Width="160" 
+                  SelectedIndex="2" SelectionChanged="LoanTermComboBox_SelectionChanged" BorderThickness="0.7"/>
+        <ComboBox x:Name="CreditScoreComboBox" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="120" 
+                  SelectedIndex="3" SelectionChanged="CreditScoreComboBox_SelectionChanged" BorderThickness="0.7"/>
+    </Grid>
+</Page>

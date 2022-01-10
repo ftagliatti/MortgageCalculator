@@ -1,0 +1,17 @@
+﻿<Window x:Class="MortgageCalculator.StartupHeaderUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MortgageCalculator"
+        mc:Ignorable="d"
+        Title="Mortgage Calculator" Height="450" Width="800"  FontFamily="Microsoft New Tai Lue" FontSize="22" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button Content="Monthly Payment" Margin="0,40,0,0" Width="190" Height="55" Click="MonthlyPaymentButton"/>
+            <Button Content="Purchase Budget" Margin="0,40,0,0" Width="190" Height="55" Click="PurchaseBudgetButton"/>
+        </StackPanel>
+        <Frame x:Name="Main" Margin="0,100,0,0" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>

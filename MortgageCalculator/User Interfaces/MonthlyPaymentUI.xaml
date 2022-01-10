@@ -1,0 +1,47 @@
+﻿<Page x:Class="MortgageCalculator.MonthlyPaymentUI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MortgageCalculator"
+      mc:Ignorable="d" 
+      Title="MonthlyPaymentUI" Background="White" Height="450" Width="800" FontFamily="Microsoft New Tai Lue" FontSize="22">
+
+    <Grid HorizontalAlignment="Center">
+        <!--6x6 Grid-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <!--Row 1-->
+        <Label Content="Loan Amount" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+        <Label Content="Monthly Payment" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Margin="60,0,0,0"/>
+        <!--Row 2-->
+        <TextBox x:Name="LoanAmountTextBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,20"
+                 Text="{Binding Path=LoanAmount, Mode=TwoWay, StringFormat={}{0:N0}, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" 
+                 KeyDown="LoanAmountTextBox_KeyDown" BorderThickness="0.7"/>
+        <TextBlock x:Name="MonthlyPaymentTextBlock" Grid.Row="2" Grid.Column="3" Margin="60,0,0,0"
+                   Text="{Binding Path=MonthlyPayment, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:c0}}" TextAlignment="Center" FontSize="24"/>
+        <!--Row 3-->
+        <Label Content="Loan Term" Grid.Row="3" Grid.Column="1"/>
+        <Label Content="Interest" Grid.Row="3" Grid.Column="2"/>
+        <!--Row 4-->
+        <ComboBox x:Name="LoanTermComboBox" Grid.Row="4" Grid.Column="1" Width="160" Margin="0,0,40,0"
+                  SelectionChanged="LoanTermComboBox_SelectionChanged" SelectedIndex="2" BorderThickness="0.7"/>
+        <TextBox x:Name="InterestRateTextBox" Grid.Row="4" Grid.Column="2"
+                 Text="{Binding Path=InterestRate, Mode=TwoWay}" TextAlignment='Center'
+                 KeyDown="InterestRateTextBox_KeyDown" BorderThickness="0.7"/>
+    </Grid>
+</Page>
